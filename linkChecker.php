@@ -16,7 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 function test_input($data)
 {
-    return $data;
     $html = file_get_contents($url);
 
     $doc = new DOMDocument();
@@ -25,6 +24,10 @@ function test_input($data)
     $xpath = new DOMXpath($doc);
 
     $nodes = $xpath->query('//a');
+    
+    if (!$nodes) {
+        return false;
+    }
 
     $hrefs = [];
     foreach ($nodes as $node) {
