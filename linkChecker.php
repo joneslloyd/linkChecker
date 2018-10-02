@@ -28,18 +28,7 @@ foreach($nodes as $node) {
 }
 }
 
-$html = file_get_contents($url);
 
-$doc = new DOMDocument();
-$doc->loadHTML($html);
-
-$xpath = new DOMXpath($doc);
-
-$nodes = $xpath->query('//a');
-
-foreach($nodes as $node) {
-    var_dump($node->getAttribute('href'));
-}
 
 ?>
 
