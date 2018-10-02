@@ -34,7 +34,7 @@ function test_input($data)
         $hrefs[] = $node->getAttribute('href');
     }
 
-    return $hrefs;
+    return print_r( '<pre>'.print_r($hrefs, true).'</pre>', true );
 }
 
 
