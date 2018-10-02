@@ -14,6 +14,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 function test_input($data) {
   return $data;
+ $html = file_get_contents($url);
+
+$doc = new DOMDocument();
+$doc->loadHTML($html);
+
+$xpath = new DOMXpath($doc);
+
+$nodes = $xpath->query('//a');
+
+foreach($nodes as $node) {
+    var_dump($node->getAttribute('href'));
+}
 }
 
 $html = file_get_contents($url);
